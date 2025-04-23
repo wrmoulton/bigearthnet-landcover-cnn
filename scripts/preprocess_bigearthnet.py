@@ -70,7 +70,7 @@ def run(dataset_path: Path, output_path: Path, max_patches=None):
             bad += 1
             print(f"[skip] {relative_subpath} – {e}")
 
-    print(f"\n✅ Finished preprocessing\n   Saved: {good}\n   Skipped: {bad}\n")
+    print(f"\n Finished preprocessing\n   Saved: {good}\n   Skipped: {bad}\n")
 
 # ---------------------------------------------------------------------------
 

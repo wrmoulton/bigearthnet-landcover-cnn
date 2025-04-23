@@ -29,8 +29,8 @@ def main(args):
     # Partition into Portugal vs others
     portugal_files = [f for f in all_files if f.stem in portugal_ids]
     other_files    = [f for f in all_files if f.stem not in portugal_ids]
-    print(f"📂 Portugal files:     {len(portugal_files)}")
-    print(f"📂 Non‑Portugal files: {len(other_files)}")
+    print(f" Portugal files:     {len(portugal_files)}")
+    print(f" Non‑Portugal files: {len(other_files)}")
 
     # Prepare output dirs
     out_pt = Path(args.out_portugal); out_pt.mkdir(parents=True, exist_ok=True)
@@ -48,16 +48,16 @@ def main(args):
     for f in sampled:
         shutil.copy2(f, out_gl / f.name)
 
-    print(f"✅  Copied {len(portugal_files)} Portugal files to {out_pt}")
-    print(f"✅  Copied {n} global samples to {out_gl}")
+    print(f"  Copied {len(portugal_files)} Portugal files to {out_pt}")
+    print(f"  Copied {n} global samples to {out_gl}")
 
     # Delete the rest, if requested
     if args.delete:
         to_delete = set(all_files) - set(portugal_files) - set(sampled)
-        print(f"🗑️  Deleting {len(to_delete)} files from {src}")
+        print(f"  Deleting {len(to_delete)} files from {src}")
         for f in to_delete:
             f.unlink()
-        print("🗑️  Deletion complete.")
+        print("  Deletion complete.")
 
 if __name__ == "__main__":
     p = argparse.ArgumentParser()

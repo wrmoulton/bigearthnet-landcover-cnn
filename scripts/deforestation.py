@@ -14,7 +14,7 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 from torch.utils.data import DataLoader, Dataset
-from finetune_portugal import build_model  # reuse your model factory
+from finetune_portugal import build_model 
 
 # ─── Dataset for arbitrary patch list ─────────────────────────────────────────
 class PatchDataset(Dataset):
@@ -75,7 +75,7 @@ def main(args):
             lambda pid: (pid.startswith("S2") and int(pid.split('_')[2][:4]) == year)
         )
         ids = md.loc[mask, 'patch_id'].astype(str).tolist()
-        print(f"🧾 Number of patches from year {year}: {len(ids)}")
+        print(f" Number of patches from year {year}: {len(ids)}")
         ds = PatchDataset(args.portugal_dir, ids, md, class_to_idx, device)
         dist = get_landcover_distribution(model, ds, device, batch_size=args.batch_size)
         return dist[forest_idx].sum()
@@ -84,9 +84,9 @@ def main(args):
     pct_2018 = pct_for_year(2018)
     change = pct_2018 - pct_2017
 
-    print(f"\n🟢 Forest cover 2017: {pct_2017:.2f}%")
-    print(f"🟤 Forest cover 2018: {pct_2018:.2f}%")
-    print(f"📉 Estimated change: {change:+.2f}%")
+    print(f"\n Forest cover 2017: {pct_2017:.2f}%")
+    print(f" Forest cover 2018: {pct_2018:.2f}%")
+    print(f" Estimated change: {change:+.2f}%")
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser()

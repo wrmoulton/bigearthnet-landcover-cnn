@@ -1,7 +1,7 @@
 import torch
 import numpy as np
 from sklearn.metrics import confusion_matrix
-from train_global_and_finetune import build_model, BigEarthNetDataset
+from finetune_portugal import build_model, BigEarthNetDataset
 import pandas as pd
 from torch.utils.data import DataLoader
 
@@ -16,8 +16,6 @@ model.load_state_dict(torch.load("best_pre.pt", map_location="cpu"))
 model.eval()
 
 # 3) create your Portugal or global val loader exactly as before,
-#    but with shuffle=False and only the val split.
-#    Here’s an example for global:
 ds = BigEarthNetDataset("data/global_subset", md, lambda c: c!="Portugal", class_to_idx)
 _, val_ds = torch.utils.data.random_split(
     ds,

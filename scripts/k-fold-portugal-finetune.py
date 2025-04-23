@@ -138,7 +138,7 @@ def main(args):
     avg_f1  = np.mean([m[1] for m in fold_metrics])
     print(f'>>> KFold mean val_acc={avg_acc:.4f}  val_f1={avg_f1:.4f}')
     torch.save(best_model_state, 'best_kfold_scratch.pt')
-    print('📦 Best model saved as best_kfold_scratch.pt')
+    print(' Best model saved as best_kfold_scratch.pt')
 
 
 if __name__=='__main__':

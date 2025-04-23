@@ -8,7 +8,7 @@ import numpy as np
 from pathlib import Path
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix
 
-from finetune_portugal import BigEarthNetDataset, build_model  # reuse your classes
+from finetune_portugal import BigEarthNetDataset, build_model  
 
 def evaluate(model, loader, device):
     model.eval()
