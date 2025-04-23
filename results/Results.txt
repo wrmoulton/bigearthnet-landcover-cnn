@@ -1,0 +1,57 @@
+Experiment 1: 
+Global + portugal fine tune
+🔹 Test Loss = 0.2512
+🔹 Test Accuracy = 0.8880
+🔹 Test F1 = 0.5915
+🔹 Confusion Matrix (class0):
+[[4737  867]
+ [1084 2292]]
+Params: 
+python train_global_and_finetune.py 
+  --metadata data/metadata.parquet 
+  --global-dir data/global_subset 
+  --portugal-dir data/portugal_subset 
+  --pre-epochs 10 
+  --ft-epochs 20 
+  --batch-size 32 
+  --pre-lr 1e-3 
+  --ft-lr 1e-4 
+  --val-frac 0.2 
+  --pre-ckpt best_pre.pt 
+  --ft-ckpt best_ft.pt
+📊 Land Cover Prediction Distribution (Portugal):
+Agro-forestry areas            12.46 %
+Arable land                    13.75 %
+Beaches, dunes, sands          0.27 %
+Broad-leaved forest            13.11 %
+Coastal wetlands               0.34 %
+Complex cultivation patterns   6.32 %
+Coniferous forest              3.00 %
+Industrial or commercial units 0.77 %
+Inland waters                  1.77 %
+Inland wetlands                0.04 %
+Land principally occupied by agriculture, with significant areas of natural vegetation 5.69 %
+Marine waters                  3.57 %
+Mixed forest                   4.94 %
+Moors, heathland and sclerophyllous vegetation 3.86 %
+Natural grassland and sparsely vegetated areas 0.44 %
+Pastures                       4.93 %
+Permanent crops                7.92 %
+Transitional woodland, shrub   14.05 %
+Urban fabric                   2.78 %
+🟢 Forest cover 2017: 35.88%
+🟤 Forest cover 2018: 33.71%
+📉 Estimated change: -2.16%
+
+Experiment 2:
+Only Portugal fine-tune w/ k-fold val
+
+🟢 Forest cover 2017: 36.85%
+🟤 Forest cover 2018: 34.39%
+📉 Estimated change: -2.46%
+🔹 Test Loss = 0.0857
+🔹 Test Accuracy = 0.9685
+🔹 Test F1 = 0.9039
+🔹 Confusion Matrix (class0):
+[[5519   85]
+ [ 348 3028]]

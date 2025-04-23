@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+
+
+# Virtual environments
+env/
+venv/
+bigearthnet_env/
+
+# Large model files
+*.pt
+*.pth
+*.h5
+
+# Dataset folders
+data/
+
